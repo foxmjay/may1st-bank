@@ -1,0 +1,64 @@
+{% extends "layouts/dashboard_layout.html" %}
+
+{% block css %}
+{{ block.super }}
+
+<style>
+
+[v-cloak] {
+          display: none;
+        }
+
+</style>   
+
+{% endblock %}
+
+
+{% block content %}
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        <!--Widgets
+        <small>Preview page</small>-->
+      </h1>
+     
+    </section>
+
+    <!-- Main content -->
+    <section class="content" >
+
+
+       <!-- Small boxes (Stat box) -->
+       
+          <div class="row" id="stats"  v-cloak>
+              {% include  "../vue_components/stats/form.html" %}
+          </div>
+          <!-- /.row -->
+          <div class="row" id="app" v-cloak>
+
+            {% include  "./vue_components/list.html" %}
+          </div>
+
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+
+{% endblock %}
+
+{% block js %}
+
+<script>
+
+    {% include  "./vue_components/crud.js" %}
+    {% include  "../vue_components/stats/app.js" %}
+
+</script>
+
+{% endblock%}

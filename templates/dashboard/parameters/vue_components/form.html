@@ -1,0 +1,52 @@
+
+<div class="box" v-if="!item">
+  <div class="box-body">
+    <div class="row">
+      <div class="col-md-12">
+        <p>Parameters not found. Initialize one :</p>
+        <button type="button" class="btn bg-purple" v-on:click="initialize()">Initialize</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <div class="box" v-else>
+  <div class="box-body">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="nom">Montant</label>
+          <input type="number" class="form-control select2" style="width: 100%;" id="cotisation_amount" name="cotisation_amount" v-model="item.cotisation_amount">
+           <div style="color:red" v-if="error['cotisation_amount']">
+            [[ error['cotisation_amount'] ]]
+          </div>
+        </div>
+      
+        <!-- /.form-group -->
+      </div>
+      <!-- /.col -->
+      <div class="col-md-6">
+
+        <label>Date initiale</label>
+        <div class="input-group date">
+          <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+          </div>
+          <input type="text" class="form-control pull-right" id="id_start_date" name="start_date" v-model.lazy="item.start_date" readonly>
+          <div style="color:red" v-if="error['start_date']">
+            [[ error['start_date'] ]]
+          </div>
+        </div>
+        <!-- /.form-group -->
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </div>
+    <!-- /.box-body -->
+    <div class="box-footer">
+        <button type="button" class="btn bg-purple pull-right" v-on:click="updateItem(item.id)">Update</button>
+    </div>
+
+</div>
+<!-- /.box -->

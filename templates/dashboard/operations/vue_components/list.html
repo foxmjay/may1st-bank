@@ -1,0 +1,60 @@
+
+ <!-- /.col -->
+ <div class="col-md-3" v-for="item in items">
+   <!-- Widget: user widget style 1 -->
+   <div class="box box-widget widget-user">
+     <!-- Add the bg color to the header using any of the bg-* classes -->
+     <div class="widget-user-header {% cycle  'bg-aqua-active' 'bg-red' 'bg-blue' %}">
+       <h3 class="widget-user-username">[[ item.last_name ]] [[ item.first_name ]] </h3>
+       <h5 class="widget-user-desc"></h5>
+     </div>
+     <div class="widget-user-image">
+       <img class="img-circle" src="/static/admin/dist/img/user.png" alt="User Avatar">
+     </div>
+     <div class="box-footer">
+       <div class="row">
+         <div class="col-sm-4 border-right">
+           <div class="description-block">
+             <h5 class="description-header">[[ item.amountLeft ]] DH</h5>
+             <span class="description-text">Montant dû</span>
+           </div>
+           <!-- /.description-block -->
+         </div>
+         <!-- /.col -->
+         <div class="col-sm-4 border-right">
+           <div class="description-block">
+             <h5 class="description-header">[[ item.sumAmount ]] DH</h5>
+             <span class="description-text">Solde</span>
+           </div>
+           <!-- /.description-block -->
+         </div>
+         <!-- /.col -->
+         <div class="col-sm-4">
+           <div class="description-block">
+             <h5 class="description-header">[[ item.creditLeft ]]</h5>
+             <span class="description-text">Credit</span>
+           </div>
+           <!-- /.description-block -->
+         </div>
+         <!-- /.col -->
+       </div>
+       <!-- /.row -->
+     </div>
+     <div class="box-footer">
+         <div class="row">
+           <div class="col-sm-12 border-right">
+               <a class="btn btn-block btn-social btn-bitbucket" :href="'/cotisations/index/'+[[ item.id ]]">
+                   <i class="fa fa-money" ></i> Cotisations
+                </a>
+              <a class="btn btn-block btn-social bg-orange" :href="'/credits/index/'+[[ item.id ]]">
+                 <i class="fa fa-bank" ></i> Credits
+              </a>
+
+           </div>
+         </div>
+         <!-- /.row -->
+       </div>
+   </div>
+   <!-- /.widget-user -->
+ </div>
+<!-- /.col -->

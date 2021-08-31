@@ -1,0 +1,71 @@
+<!-- =============================================== -->
+      
+        <!-- Left side column. contains the sidebar -->
+        <aside class="main-sidebar">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+
+                  <!-- sidebar menu: : style can be found in sidebar.less -->
+                  <ul class="sidebar-menu" data-widget="tree">
+                    <li class="header">MAIN NAVIGATION</li>
+                    <li>
+                      <a href="/dashboard" {% if 'home' in request.path %}class="active"{%endif%} >
+                        <i class="fa fa-bank"></i> <span>Home</span>
+                        <span class="pull-right-container">
+                        </span>
+                      </a>
+                    </li>
+                    {% if user.is_superuser or user.is_staff%}
+
+                    <li>
+                      <a href="/operations/index" {% if 'operations' in request.path %}class="active"{%endif%} >
+                        <i class="fa fa-money"></i> <span>Operations</span>
+                        <span class="pull-right-container">
+                        </span>
+                      </a>
+                    </li>
+
+                     <li>
+                      <a href="/credits/index" {% if 'credits' in request.path %}class="active"{%endif%} >
+                        <i class="fa fa-wrench"></i> <span>Credits</span>
+                        <span class="pull-right-container">
+                        </span>
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="/users/index" {% if 'users' in request.path %}class="active"{%endif%} >
+                        <i class="fa fa-user"></i> <span>Utilisateurs</span>
+                        <span class="pull-right-container">
+                        </span>
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="/deposits/list" {% if 'deposits' in request.path %}class="active"{%endif%} >
+                        <i class="fa fa-user"></i> <span>Deposits</span>
+                        <span class="pull-right-container">
+                        </span>
+                      </a>
+                    </li>
+                    
+
+                    <li>
+                      <a href="/parameters/index" {% if 'parameters' in request.path %}class="active"{%endif%} >
+                        <i class="fa fa-wrench"></i> <span>parameters</span>
+                        <span class="pull-right-container">
+                        </span>
+                      </a>
+                    </li>
+
+                    {%endif%}
+                    <!-- <li class="header">LABELS</li>
+                    <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
+                    <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
+                    <li><a href="#"><i class="fa fa-circle-o text-aqua"></i> <span>Information</span></a></li> -->
+                  </ul>
+                </section>
+                <!-- /.sidebar -->
+              </aside>
+            
+              <!-- =============================================== -->

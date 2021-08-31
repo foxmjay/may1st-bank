@@ -1,0 +1,52 @@
+{% extends "../layouts/dashboard_layout.html" %}
+
+{% block css %}
+  {{ block.super }}
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/static/css/custom.css">
+   
+
+{% endblock %}
+
+
+{% block content %}
+
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <h1>
+        <!--Widgets
+        <small>Preview page</small>-->
+      </h1>
+     
+    </section>
+    <div id="app">
+      <crud title="component1"></crud>
+    </div>
+    
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+
+{% endblock %}
+
+{% block js %}
+
+<script>
+
+  // axios.get('/users/')
+  //     .then(function (response) {
+  //         console.log(response.data)
+  //     })
+  //   .catch(function (error) { console.log(error);});
+
+
+    {% include  "./users/vue_components/crud.js" %}
+
+</script>
+
+{% endblock%}

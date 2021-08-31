@@ -1,0 +1,43 @@
+
+
+ <div class="box">
+  <div class="box-body">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="montant">Montant</label>
+          <input type="number" class="form-control select2" style="width: 100%;" id="id_amount" name="amount" v-model="userProfile.amount">
+           <div style="color:red" v-if="error['amount']">
+            [[ error['amount'] ]]
+          </div>
+        </div>
+       
+      </div>
+      <!-- /.col -->
+      <div class="col-md-6">
+        
+        <label>Date initiale</label>
+        <div class="input-group date">
+          <div class="input-group-addon">
+            <i class="fa fa-calendar"></i>
+          </div>
+          <input type="text" class="form-control pull-right" id="id_start_date" name="start_date" v-model.lazy="userProfile.start_date" readonly>
+          <div style="color:red" v-if="error['start_date']">
+            [[ error['start_date'] ]]
+          </div>
+        </div>
+        
+        <!-- /.form-group -->
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </div>
+    <!-- /.box-body -->
+    <div class="box-footer">
+        <button type="button" class="btn bg-purple pull-right" v-on:click="updateUserProfile(userProfile.id)">Valider</button>
+        <button type="button" class="btn bg-default pull-left" v-on:click="cancelAction">Annuler</a>
+    </div>
+
+</div>
+<!-- /.box -->

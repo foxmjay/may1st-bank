@@ -1,0 +1,88 @@
+[[calculate]]
+
+ <div class="box">
+  <div class="box-body">
+    <div class="row">
+      <div class="col-md-6">
+
+          <div class="form-group">
+            <label>Utilisateur</label>
+            <select class="form-control select2" style="width: 100%;" id="id_user" name="user"  v-model="buffer.user" required :disabled="action == 'Edit' || selected_user_id != 'None'">
+              <option v-for="user in users" :value="user.id"  >[[user.last_name]] [[ user.first_name]] [[user.id]]</option>
+            </select>
+            <div style="color:red" v-if="error['user']">
+                [[ error['user'] ]]
+            </div>
+          </div>
+
+        <!-- /.form-group -->
+        <div class="form-group">
+          <label for="amount">Montant </label>
+          <input type="number" steps="0.01" class="form-control" id="id_amount" name="amount" placeholder="Montant" v-model="buffer.amount" required>
+          <div style="color:red" v-if="error['amount']">
+            [[ error['amount'] ]]
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="start_date">Date debut</label>
+          <input type="text" class="form-control" id="id_start_date" name="start_date" placeholder="Date debut" v-model="buffer.start_date" readonly required>
+          <div style="color:red" v-if="error['start_date']">
+              [[ error['start_date'] ]]
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="end_date">Date fin</label>
+          <input type="text" class="form-control" id="id_end_date" name="end_date" placeholder="Date fin" v-model="buffer.end_date" readonly required>
+          <div style="color:red" v-if="error['end_date']">
+              [[ error['end_date'] ]]
+          </div>
+        </div>
+
+
+        <!-- /.form-group -->
+      </div>
+      <!-- /.col -->
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="cotisation_amount">Cotisation</label>
+          <input type="number" steps="0.01" class="form-control" id="id_cotisation_amount" name="cotisation_amount" placeholder="Montant Cotisation" v-model="buffer.cotisation_amount" readonly required>
+          <div style="color:red" v-if="error['cotisation_amount']" >
+            [[ error['cotisation_amount'] ]]
+            
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="months">Nombre de mois</label>
+          <input type="text" class="form-control" id="id_months" name="months" placeholder="Mois" v-model="buffer.months" required>
+          <div style="color:red" v-if="error['months']">
+              [[ error['months'] ]]
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Etat</label>
+          <select class="form-control select2" style="width: 100%;" id="id_status" name="status"  v-model="buffer.status" required>
+            <option v-for="stat in status" :value="stat[0]" >[[ stat[1] ]]</option>
+          </select>
+          <div style="color:red" v-if="error['status']">
+              [[ error['status'] ]]
+          </div>
+        </div>
+        
+        <!-- /.form-group -->
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </div>
+    <!-- /.box-body -->
+    <div class="box-footer">
+        <button v-if='action === "Create"' type="button" class="btn bg-purple pull-right" v-on:click="createItem">Valider</button>
+        <button v-if='action === "Edit"' type="button" class="btn bg-purple pull-right" v-on:click="updateItem(buffer.id)">Update</button>
+        <button type="button" class="btn bg-default pull-left" v-on:click="cancelAction">Annuler</button>
+    </div>
+
+</div>
+<!-- /.box -->

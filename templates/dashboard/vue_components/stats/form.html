@@ -1,0 +1,14 @@
+<div class="col-md-3 col-sm-6 col-xs-12" v-for="item,index in items" >
+  <!-- small box -->
+  <div :class="'small-box '+[[theme[index].class]]">
+    <div class="inner">
+      <h3> [[ item.data ]] <sup style="font-size: 20px">DH</sup></h3>
+
+      <p>[[ item.title ]]</p>
+    </div>
+    <div class="icon">
+      <i :class="'fa '+[[theme[index].icon]]"></i>
+    </div>
+    
+  </div>
+</div>

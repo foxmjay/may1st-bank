@@ -1,0 +1,86 @@
+
+
+ <div class="box">
+  <div class="box-body">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="nom">Nom</label>
+          <input type="text" class="form-control" id="id_last_name" name="last_name" placeholder="Nom" v-model="buffer.last_name">
+           <div style="color:red" v-if="error['last_name']">
+            [[ error['las_name'] ]]
+          </div>
+        </div>
+        <!-- /.form-group -->
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="id_email" name="email" placeholder="Email" v-model="buffer.email">
+          <div style="color:red" v-if="error['email']">
+            [[ error['email'] ]]
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="id_username" name="username" placeholder="Username" v-model="buffer.username">
+          <div style="color:red" v-if="error['username']">
+              [[ error['username'] ]]
+          </div>
+        </div>
+        <div class="form-group">
+          <label>
+            <input type="checkbox" id="id_is_superuser" name="is_superuser" v-model="buffer.is_superuser" > Administrateur
+          </label>
+        </div>
+        <div class="form-group">
+          <label>
+            <input type="checkbox" id="id_is_staff" name="is_staff" v-model="buffer.is_staff"> Manager
+          </label>
+        </div>
+        <div class="form-group">
+          <label>
+            <input type="checkbox" id="id_is_active" name="is_active" v-model="buffer.is_active"> Actif
+          </label>
+        </div>
+
+        <!-- /.form-group -->
+      </div>
+      <!-- /.col -->
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="prenom">Prenom</label>
+          <input type="text" class="form-control" id="id_frst_name" name="first_name" placeholder="Prenom" v-model="buffer.first_name">
+          <div style="color:red" v-if="error['first_name']" >
+            [[ error['first_name'] ]]
+            
+          </div>
+        </div>
+        <!-- /.form-group -->
+        <div class="form-group">
+          <br>
+          <br>
+          <br>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="id_password" name="password" placeholder="Password" v-model="buffer.password">
+          <div style="color:red" v-if="error['password']">
+              [[ error['password'] ]]
+          </div>
+        </div>
+        
+        <!-- /.form-group -->
+      </div>
+      <!-- /.col -->
+    </div>
+    <!-- /.row -->
+  </div>
+    <!-- /.box-body -->
+    <div class="box-footer">
+        <button v-if='action === "Create"' type="button" class="btn bg-purple pull-right" v-on:click="createItem">Valider</button>
+        <button v-if='action === "Edit"' type="button" class="btn bg-purple pull-right" v-on:click="updateItem(buffer.id)">Update</button>
+        <button type="button" class="btn bg-default pull-left" v-on:click="cancelAction">Annuler</button>
+    </div>
+
+</div>
+<!-- /.box -->

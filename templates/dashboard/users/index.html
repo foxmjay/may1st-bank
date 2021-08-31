@@ -1,0 +1,45 @@
+  {% extends "layouts/dashboard_layout.html" %}
+
+  {% block css %}
+  {{ block.super }}
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/static/css/custom.css">
+   
+
+{% endblock %}
+
+
+{% block content %}
+
+ <!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper"  id="app">
+        <!-- Main content -->
+        <section class="content">
+
+                <div v-if='action === "List" '>
+                  {% include  "./vue_components/list.html" %}
+                </div>
+                <div v-if='action === "Create" || action === "Edit"'> 
+                  {% include  "./vue_components/form.html" %}
+                </div>
+                <div v-if='action === "UserProfile"'> 
+                  {% include  "./vue_components/form_userprofile.html" %}
+                </div>
+
+      </section>
+        <!-- /.content -->
+ </div>
+<!-- /.content-wrapper -->
+
+{% endblock %}
+
+{% block js %}
+
+<script>
+
+    {% include  "./vue_components/crud.js" %}
+
+</script>
+
+{% endblock%}
